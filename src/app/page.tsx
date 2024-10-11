@@ -15,7 +15,6 @@ import {
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
-
 const { Title, Text } = Typography;
 
 interface Todo {
@@ -71,7 +70,7 @@ export default function Home() {
         justifyContent: "center",
         minHeight: "100vh",
         alignItems: "center",
-        padding: "40px 20px",
+        padding: "20px",
         backgroundColor: "#f0f2f5",
       }}
     >
@@ -81,7 +80,7 @@ export default function Home() {
           maxWidth: "600px",
           height: "600px",
           background: "white",
-          padding: "40px",
+          padding: "20px",
           borderRadius: "8px",
           boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
         }}
@@ -124,12 +123,12 @@ export default function Home() {
               style={{
                 maxHeight: "400px",
                 overflowY: "auto",
-                paddingRight: "20px",
+                paddingRight: "10px",
               }}
             >
               <Row gutter={[0, 16]}>
                 {todos.map((todo) => (
-                  <Col xs={24} key={todo.id}>
+                  <Col xs={24} sm={24} md={24} key={todo.id}>
                     <Card
                       style={{
                         borderRadius: "8px",
@@ -220,6 +219,20 @@ export default function Home() {
           <p>Are you sure you want to delete this task?</p>
         </Modal>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 600px) {
+          div {
+            padding: 10px;
+          }
+          .ant-card {
+            padding: 10px;
+          }
+          .ant-typography {
+            font-size: 14px;
+          }
+        }
+      `}</style>
     </div>
   );
 }
